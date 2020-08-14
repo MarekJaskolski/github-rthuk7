@@ -6,17 +6,18 @@
 	2. Wykorzystaj jakiś event na polu input i pobierz wartość wpisywaną do pola.
 	Wartość ma się pojawiać pod spodem w czasie wpisywania.
 </p>
-<input placeholder="Zacznij pisać" />
+<input placeholder="Zacznij pisać" (input)="text = $event.target.value"/>
+{{text}}
 
 <p>
 	3. Gdy kliknie się w pole tekstowe, powinna pojawić się pod spodem informacja:
 	'Zacznij pisać'. Gdy wyjdziemy z pola, napis powinien znikać.
 </p>
-<input placeholder="Zacznij pisać" />
-
+<input placeholder="Zacznij pisać" (focusin)="focus = 'Zacznij pisać'" (focusout)="focus = ''"/>
+{{focus}}
 <p>
 	4.Na elemencie div wykorzystaj event 'wheel'. Stwórz metodę, która rozpozna
 	czy, kółko myszki kręci się do góry czy do dołu. Informację wypisz w elemencie
 	div.
 </p>
-<div class="mouse-container"></div>
+<div class="mouse-container" (wheel)="zoom($event.deltaY); $event.preventDefault()"></div>
